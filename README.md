@@ -1,6 +1,5 @@
-# Sample Hardhat Project
+This project is a governance plugin created for Aragon OSx - that will enable the Nation3 DAO to use on-chain governance with its citizen NFT passports (ERC-721).
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
 
 Try running some of the following tasks:
 
