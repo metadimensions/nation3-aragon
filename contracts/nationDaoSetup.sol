@@ -181,7 +181,7 @@ permissions[4] = PermissionLib.MultiTargetPermission({
     permissionId: nationDaoBase.NFT_MANAGEMENT_PERMISSION_ID()
 });
 
-// Additional permission for administrative control
+// Revoking a permission for administrative control
 permissions[5] = PermissionLib.MultiTargetPermission({
     operation: PermissionLib.Operation.Revoke,
     where: _dao,

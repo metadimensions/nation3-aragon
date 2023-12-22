@@ -12,8 +12,9 @@ contract MockNFT is ERC721 {
      // This is just a example in real time need to have access control to restrict who can mint tokens
         _safeMint(to, tokenId);
     }
+    // Just an example 
     function _baseURI() internal pure override returns (string memory) {
-        return "http://example.com/api/token/";
+        return "";
     }
 
     function _getNextTokenId() private returns (uint256) {
