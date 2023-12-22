@@ -8,14 +8,16 @@ import "@openzeppelin/contracts/utils/Address.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 import "@aragon/osx/core/dao/IDAO.sol";
 import "@aragon/osx/core/permission/PermissionLib.sol";
-import "@aragon/osx/framework/plugin/setup/IPluginSetup.sol";
+import {PluginSetup, IPluginSetup} from "@aragon/osx/framework/plugin/setup/PluginSetup.sol";
 import "./nationDao.sol";
 
-abstract contract NationDaoSetup is IPluginSetup {
+
+ contract NationDaoSetup is PluginSetup {
     using Address for address;
     using Clones for address;
 
     NationDao private immutable nationDaoBase;
+
 
     struct NationDaoSettings {
         address nftAddress;
@@ -120,6 +122,8 @@ permissions[5] = PermissionLib.MultiTargetPermission({
         
     return (plugin, preparedSetupData);
     }
+
+    
 
 
 function prepareUninstallation(

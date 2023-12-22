@@ -24,6 +24,9 @@ describe("NationDao", function () {
         await mockNFT.mint(voter2.address, 2);
     });
 
+    // use the deployer's address as a placeholder DAO address
+    // use the smart contract address a the DAO address for the nationDao smartContract
+
     describe("Proposal Creation", function () {
         it("should allow creating a proposal", async function () {
             await nationDao.connect(owner).createProposal("Test Proposal");

@@ -68,8 +68,7 @@ contract NationDao is Initializable, AccessControlUpgradeable {
             require(!proposal.votes[tokenId], "Already voted with this NFT");
             proposal.votes[tokenId] = support;
         }
-
-        emit VoteCast(voter, proposalId, support, balance);
+        emit VoteCast(voter, proposalId, support, balance); 
     }
     
     // function to get the votes to be gettingVoted with that functions expected 
