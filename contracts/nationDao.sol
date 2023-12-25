@@ -57,6 +57,7 @@ contract NationDao is Initializable, AccessControlUpgradeable {
         defaultVotingDuration = _defaultVotingDuration;
     }
 
+
     function vote(uint256 proposalId, bool support, address voter) public {
         require(canVote(proposalId, voter), "Voter cannot vote on this proposal");
 
@@ -70,6 +71,14 @@ contract NationDao is Initializable, AccessControlUpgradeable {
         }
         emit VoteCast(voter, proposalId, support, balance); 
     }
+
+    // function which will be giving votes to the proposals
+
+
+    // function to get the voters to be initiated from the totalValue itself 
+    // function to check wheather this will work or not
+
+
     
     // function to get the votes to be gettingVoted with that functions expected 
     function getVotes(uint256 proposalId) public view returns (uint256 yesVotes, uint256 noVotes) {
@@ -84,7 +93,7 @@ contract NationDao is Initializable, AccessControlUpgradeable {
         }
     }
 
-    // function to createproposal 
+    // function to createproposal to be gettingVoted with that functions expected 
 
     function createProposal(string memory _description) external onlyRole(PROPOSAL_CREATOR_ROLE) returns (uint256) {
         uint256 proposalId = _getNextProposalId();
@@ -109,9 +118,13 @@ contract NationDao is Initializable, AccessControlUpgradeable {
         proposal.executed = true;
 
         bool isApproved = proposal.yesVotes > proposal.noVotes;
-        emit ProposalFinalized(_proposalId, isApproved);
+        emit ProposalFinalized(_proposalId, isApproved); 
         return isApproved;
     }
+
+    // function to countvotes 
+
+    // the countVotes will be used to the proposalId 
 
     function canVote(uint256 proposalId, address voter) public view returns (bool) {
         Proposal storage proposal = proposals[proposalId];
@@ -119,6 +132,10 @@ contract NationDao is Initializable, AccessControlUpgradeable {
         bool isVotingPeriodActive = block.timestamp >= proposal.startTime && block.timestamp <= proposal.endTime;
         return balance > 0 && isVotingPeriodActive;
     }
+
+    // this function will be ignored and which will create an empty message aborts 
+    // which will be sent to the nextProposalId and returns the uint256 
+    // getNextProposalID which will be sent to the next address
 
     function _getNextProposalId() internal returns (uint256) {
         return ++proposalCount;

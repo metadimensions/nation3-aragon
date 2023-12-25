@@ -116,15 +116,14 @@ permissions[5] = PermissionLib.MultiTargetPermission({
     permissionId: nationDaoBase.ADMIN_CONTROL_PERMISSION_ID()
 });
 
+// Granting the permission setup to the address which is already in the  
+
     preparedSetupData.helpers = new address[](1);
     preparedSetupData.helpers[0] = daoSettings.nftAddress;
     preparedSetupData.permissions = permissions;
         
     return (plugin, preparedSetupData);
     }
-
-    
-
 
 function prepareUninstallation(
     address _dao,
